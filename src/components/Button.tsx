@@ -1,11 +1,11 @@
 // props
 type ButtonProps = {
-    text?: string;
+    children?: string;
 }
 
 // named export
 export function Button(props:ButtonProps) {
     return (
-        <button>{props.text || 'default'}</button>
+        <button>{props.children || 'default'}</button>
     )
 }
