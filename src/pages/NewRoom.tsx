@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { TestContext } from "../App";
 
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
+
 import { Button } from "../components/Button";
+import { TestContext } from "../App";
 
 import "../styles/auth.scss";
 
 export function NewRoom() {
 
-  const value = useContext(TestContext);
+  const { value, setValue } = useContext(TestContext);
 
   return(
     <div id="page-auth">
