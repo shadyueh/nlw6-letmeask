@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
@@ -14,7 +14,7 @@ import { database } from "../services/firebase";
 
 export function Home() {
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const { user, signInWithGoogle } = useAuth();
   const [roomCode, setRoomCode] = useState('');
 
@@ -22,7 +22,7 @@ export function Home() {
     if (!user) {
       await signInWithGoogle()
     }
-    history.push('/rooms/new');
+    navigate('/rooms/new');
   }
   
   async function handleJoin(event: FormEvent) {
@@ -39,7 +39,7 @@ export function Home() {
       return;
     }
 
-    history.push(`/rooms/${roomCode}`);
+    navigate(`/rooms/${roomCode}`);
   }
 
   return(
